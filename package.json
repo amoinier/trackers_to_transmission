@@ -1,0 +1,25 @@
+{
+  "name": "t411_transmission",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "transmission": "^0.4.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amoinier/t411_transmission.git"
+  },
+  "author": "amoinier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amoinier/t411_transmission/issues"
+  },
+  "homepage": "https://github.com/amoinier/t411_transmission#readme"
+}

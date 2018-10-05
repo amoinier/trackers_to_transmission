@@ -1,5 +1,5 @@
 {
-  "name": "t411_transmission",
+  "name": "trackers_to_transmission",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amoinier/t411_transmission.git"
+    "url": "git+https://github.com/amoinier/trackers_to_transmission.git"
   },
   "author": "amoinier",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amoinier/t411_transmission/issues"
+    "url": "https://github.com/amoinier/trackers_to_transmission/issues"
   },
-  "homepage": "https://github.com/amoinier/t411_transmission#readme"
+  "homepage": "https://github.com/amoinier/trackers_to_transmission#readme"
 }

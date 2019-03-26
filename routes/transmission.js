@@ -1,45 +1,37 @@
-const express = require('express');
-const async = require('async');
-var Router = express.Router();
-var Transmission = require('transmission');
+const express = require('express')
+const Transmission = require('transmission')
+const dotenv = require('dotenv')
+const Router = express.Router()
 
-transmission = new Transmission({
-	host: '',
-	port: 8084,
-	username: '',
-	password: '',
-	ssl: false,
-	url: '/transmission/rpc',
+dotenv.config()
+
+let transmission = new Transmission({
+  host: process.env.HOST,
+  port: process.env.PORT,
+  username: process.env.USERNAME,
+  password: process.env.PASSWORD,
+  ssl: process.env.SSL,
+  url: process.env.URL
 })
 
-
-Router.get("/", function(req, res) {
-	if (req.query.url) {
-		transmission.addUrl(req.query.url, function(err, arg) {
-			console.log(err);
-			console.log(arg);
-			console.log(transmission.status);
-
-			if (err) {
-				return res.json({
-					status: false,
-					message: err
-				});
-			}
-			else {
-				return res.json({
-					status: true,
-					message: "Ok"
-				})
-			}
-		});
-	}
-	else {
-		return res.json({
-			status: false,
-			message: "No link"
-		});
-	}
+Router.get('/', function (req, res) {
+  if (!req.query.url) {
+    return res.sendStatus(520).json({
+      message: 'No link'
+    })
+  } else {
+    transmission.addUrl(req.query.url, function (err, arg) {
+      if (err) {
+        return res.sendStatus(520).json({
+          message: err
+        })
+      } else {
+        return res.status(200).json({
+          message: 'Ok'
+        })
+      }
+    })
+  }
 })
 
-module.exports = Router;
+module.exports = Router
